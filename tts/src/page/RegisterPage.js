@@ -20,7 +20,7 @@ function RegisterPage() {
     };
 
     const formStyle = {
-        backgroundColor: 'rgba(0, 0, 0, 0.6)', // Semi-transparent background for the form
+        //backgroundColor: 'rgba(0, 0, 0, 0.6)',
         padding: '30px',
         borderRadius: '10px',
         display: 'flex',
@@ -46,7 +46,7 @@ function RegisterPage() {
         padding: '15px 40px',
         textDecoration: 'none',
         borderRadius: '5px',
-        fontSize: '1em', // Smaller font size for button
+        fontSize: '1em',
         border: 'none',
         cursor: 'pointer',
         margin: '10px 0',
@@ -59,7 +59,7 @@ function RegisterPage() {
                 <input type="text" placeholder="이름" style={inputStyle} />
                 <input type="email" placeholder="이메일" style={inputStyle} />
                 <input type="password" placeholder="비밀번호" style={inputStyle} />
-                <button style={buttonStyle}>회원가입</button>
+                <a href="http://localhost:3000/login" style={buttonStyle}>회원가입</a>
             </div>
         </div>
     );

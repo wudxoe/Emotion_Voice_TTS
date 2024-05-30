@@ -45,7 +45,7 @@ function MainPage() {
     };
 
     const cardStyle = {
-        backgroundColor: 'rgba(0, 0, 0, 0.7)', // Semi-transparent background for the card
+        backgroundColor: 'rgba(121, 121, 121, 0.5)', // Semi-transparent background for the card
         padding: '20px',
         borderRadius: '10px',
         width: '250px',
@@ -73,16 +73,17 @@ function MainPage() {
         border: 'none',
         fontSize: '1.2em',
         cursor: 'pointer',
+        textDecoration: 'none',
     };
 
     return (
         <div style={containerStyle}>
-            <button style={logoutButtonStyle}>Logout</button>
+            <a href="http://localhost:3000/login" style={logoutButtonStyle}>Logout</a>
             <h1 style={headerStyle}>Dive into the world of emotions!</h1>
             <p style={subHeaderStyle}>
                 Enter a scenario to get a detailed sentiment analysis TTS service. Gain a deeper understanding of the scenario.
             </p>
-            <button style={buttonStyle}>Start world</button>
+            <a href="http://localhost:3000/ScenarioInput" style={buttonStyle}>Start world</a>
             <div style={cardContainerStyle}>
                 {['My sentiment analysis', 'My sentiment analysis', 'My sentiment analysis', 'My sentiment analysis'].map((title, index) => (
                     <div key={index} style={cardStyle}>

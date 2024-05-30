@@ -14,7 +14,7 @@ function LoginPage() {
     };
 
     const formStyle = {
-        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background for the form
+        //backgroundColor: 'rgba(0, 0, 0, 0)',
         padding: '20px',
         borderRadius: '10px',
         display: 'flex',
@@ -46,12 +46,12 @@ function LoginPage() {
 
     const textButtonStyle = {
         background: 'none',
-        color: 'gray',
+        color: 'lightgray',
         cursor: 'pointer',
         fontSize: '0.8em',
         border: 'none',
         marginTop: '20px',
-        textDecoration: 'underline',
+        textDecoration: 'none',
     };
 
     return (
