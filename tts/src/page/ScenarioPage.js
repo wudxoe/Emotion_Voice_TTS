@@ -4,9 +4,12 @@ function ScenarioPage() {
     const containerStyle = {
         textAlign: 'center',
         color: 'black',
-        backgroundSize: 'cover',
-        backgroundImage: `url('./assets/book.jpg')`, // Replace with the path to your background image
-        height: '100vh',
+        backgroundImage: `url('/assets/book.jpg')`,
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        height: '80%',
+        width: '80%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -14,12 +17,10 @@ function ScenarioPage() {
     };
 
     const bookContainerStyle = {
-        backgroundColor: 'white',
-        color: 'black',
         padding: '30px',
         borderRadius: '10px',
-        width: '800px',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+        width: '70%', // 상대적으로 크기 조절
+        height: '70%', // 상대적으로 크기 조절
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -27,13 +28,20 @@ function ScenarioPage() {
 
     const leftPageStyle = {
         width: '45%',
-        padding: '20px',
-        borderRight: '1px solid #ccc',
+        padding: '44px',
     };
 
     const rightPageStyle = {
         width: '45%',
         padding: '20px',
+    };
+
+    const containerBoxStyle = {
+        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+        padding: '20px',
+        borderRadius: '10px',
+        marginBottom: '20px',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
     };
 
     const characterContainerStyle = {
@@ -81,28 +89,36 @@ function ScenarioPage() {
                 <div style={leftPageStyle}>
                     <h2>백설공주</h2>
                     <h3>등장인물</h3>
-                    <div style={characterContainerStyle}>
-                        <img src="/path/to/your/character1.png" alt="남편" style={characterImageStyle} />
-                        <p>남편<br />40대, 남자</p>
-                    </div>
-                    <div style={characterContainerStyle}>
-                        <img src="/path/to/your/character2.png" alt="아내" style={characterImageStyle} />
-                        <p>아내<br />30대, 여자</p>
+                    <div style={containerBoxStyle}>
+                        <div style={characterContainerStyle}>
+                            <img src="/assets/character1.png" alt="남편" style={characterImageStyle} />
+                            <p>남편<br />40대, 남자</p>
+                        </div>
+                        <div style={characterContainerStyle}>
+                            <img src="/assets/character2.png" alt="아내" style={characterImageStyle} />
+                            <p>아내<br />30대, 여자</p>
+                        </div>
                     </div>
                     <h3>등장인물 관계도</h3>
-                    <div style={characterContainerStyle}>
-                        <p>친화</p>
+                    <div style={containerBoxStyle}>
+                        <div style={characterContainerStyle}>
+                            <p>친화</p>
+                        </div>
                     </div>
                     <h3>발화의 감정</h3>
-                    <div style={emotionStyle}>
-                        <img src="/path/to/your/emotion.png" alt="Surprise" style={emotionImageStyle} />
-                        <p>Surprise</p>
-                        <a href="http://localhost:3000/Emotion" style={buttonStyle}>상세 분석 결과</a>
+                    <div style={containerBoxStyle}>
+                        <div style={emotionStyle}>
+                            <img src="/assets/emotion.png" alt="Surprise" style={emotionImageStyle} />
+                            <p>Surprise</p>
+                            <a href="http://localhost:3000/Emotion" style={buttonStyle}>상세 분석 결과</a>
+                        </div>
                     </div>
                 </div>
-                <div style={rightPageStyle}>
-                    <p>오랫동안 아무런 결실 없이 아이를 원하기만 한 부부가 있었습니다...</p>
-                    <button style={buttonStyle}>재생하기</button>
+                <div style={containerBoxStyle}>
+                    <div style={rightPageStyle}>
+                        <p>오랫동안 아무런 결실 없이 아이를 원하기만 한 부부가 있었습니다...</p>
+                        <button style={buttonStyle}>재생하기</button>
+                    </div>
                 </div>
             </div>
         </div>

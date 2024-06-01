@@ -6,51 +6,51 @@ import 'chart.js/auto';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const BData = {
-  labels: ['기쁨', '분노', '놀람', '슬픔', '중립'],
-  datasets: [
-    {
-      label: '감정 분석',
-      data: [4, 1, 51, 40, 4],
-      backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#ff9f40', '#4bc0c0'],
-    },
-  ],
+    labels: ['기쁨', '분노', '놀람', '슬픔', '중립'],
+    datasets: [
+        {
+            label: '감정 분석',
+            data: [4, 1, 51, 40, 4],
+            backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#ff9f40', '#4bc0c0'],
+        },
+    ],
 };
 
 const options = {
     plugins: {
-      legend: {
-        display: true,
-        position: 'bottom',
-        labels: {
-          color: '#000000',
+        legend: {
+            display: true,
+            position: 'bottom',
+            labels: {
+                color: '#000000',
+            },
         },
-      },
-      tooltip: {
-        enabled: true,
-      },
+        tooltip: {
+            enabled: true,
+        },
     },
-  };
+};
 
 const AData = {
-  labels: ['친화적', '중립적', '적대적'],
-  datasets: [
-    {
-      data: [60, 15, 20],
-      backgroundColor: ['#ff6384', '#ffce56', '#4bc0c0'],
-    },
-  ],
+    labels: ['친화적', '중립적', '적대적'],
+    datasets: [
+        {
+            data: [60, 15, 20],
+            backgroundColor: ['#ff6384', '#ffce56', '#4bc0c0'],
+        },
+    ],
 };
 
 const CData = {
     labels: ['기쁨', '분노', '놀람', '슬픔', '중립'],
     datasets: [
-      {
-        label: '감정 분석',
-        data: [5, 15, 55, 20, 5],
-        backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#ff9f40', '#4bc0c0'],
-      },
+        {
+            label: '감정 분석',
+            data: [5, 15, 55, 20, 5],
+            backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#ff9f40', '#4bc0c0'],
+        },
     ],
-  };
+};
 
 function EmotionPage() {
     const containerStyle = {
@@ -80,12 +80,7 @@ function EmotionPage() {
         border: 'none',
         fontSize: '1.5em',
         cursor: 'pointer',
-    };
-
-    const sectionTitleStyle = {
-        alignSelf: 'flex-start',
-        fontSize: '1.2em',
-        marginBottom: '10px',
+        textDecoration: 'none',
     };
 
     const titleStyle = {
@@ -171,56 +166,55 @@ function EmotionPage() {
     return (
         <div style={containerStyle}>
             <div style={pageStyle}>
-                <button style={closeButtonStyle}>&times;</button>
-                <h2 style={sectionTitleStyle}>Section 7</h2>
+                <a href="http://localhost:3000/Scenario" style={closeButtonStyle}>&times;</a>
                 <h1 style={titleStyle}>Snow White</h1>
-                
+
                 <div style={contentStyle}>
                     <div style={leftPanelStyle}>
                         <div style={sectionStyle}>
-                            <img src="/path/to/speaker.png" alt="남편" style={imageStyle} />
+                            <img src="/assets/sad.jpg" alt="남편" style={imageStyle} />
                             <div style={textContentStyle}>
                                 <p>발화자: 남편</p>
                                 <p style={speechStyle}>“무슨 일이야? 놀랐잖아 여보!!”</p>
                             </div>
                         </div>
-                        
+
                         <div style={sectionStyle}>
-                            <img src="/path/to/listener.png" alt="아내" style={imageStyle} />
+                            <img src="/assets/sad.jpg" alt="아내" style={imageStyle} />
                             <div style={textContentStyle}>
                                 <p>수신자: 아내</p>
                                 <p style={speechStyle}>“여보! 깜짝이야!”</p>
                             </div>
                         </div>
-                        
+
                         <div style={sectionStyle}>
                             <h3>수신자와의 관계</h3>
                             <Doughnut data={AData} options={options} />
                             <p style={percentageStyle}>친화적 관계: 60%</p>
                         </div>
-                        
+
                         <div style={sectionStyle}>
                             <h3>전 발화</h3>
                             <p style={previousSpeechTextStyle}>“어머, 깜짝이야!!”</p>
                             <p>전 발화의 감정</p>
                             <div style={chartStyle}></div>
-                            <p style={emotionLabelStyle}>Surprise</p>
+                            <p style={emotionLabelStyle}>놀람</p>
                         </div>
                     </div>
-                    
+
                     <div style={panelStyle}>
                         <div style={sectionStyle}>
                             <h3>발화 문장의 감정 분석</h3>
                             <Bar data={BData} options={options} />
                             <p style={emotionPercentageStyle}>놀람: 51%</p>
                         </div>
-                        
+
                         <div style={sectionStyle}>
                             <h3>직전 상황 맥락 TEXT</h3>
                             <p style={contextTextStyle}>오랫동안 아무런 결실 없이 아이를 원하기만 한 부부가 있었습니다. ...</p>
                             <Doughnut data={CData} options={options} />
                         </div>
-                        
+
                         <div style={sectionStyle}>
                             <h3>최종 감정 분석 결과</h3>
                             <p style={finalEmotionTextStyle}>슬픔 <span style={emotionPercentageStyle}>80%</span></p>
