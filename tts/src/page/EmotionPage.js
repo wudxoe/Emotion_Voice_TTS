@@ -1,4 +1,56 @@
 import React from 'react';
+import { Bar, Doughnut } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import 'chart.js/auto';
+
+ChartJS.register(ArcElement, Tooltip, Legend);
+
+const BData = {
+  labels: ['기쁨', '분노', '놀람', '슬픔', '중립'],
+  datasets: [
+    {
+      label: '감정 분석',
+      data: [4, 1, 51, 40, 4],
+      backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#ff9f40', '#4bc0c0'],
+    },
+  ],
+};
+
+const options = {
+    plugins: {
+      legend: {
+        display: true,
+        position: 'bottom',
+        labels: {
+          color: '#000000',
+        },
+      },
+      tooltip: {
+        enabled: true,
+      },
+    },
+  };
+
+const AData = {
+  labels: ['친화적', '중립적', '적대적'],
+  datasets: [
+    {
+      data: [60, 15, 20],
+      backgroundColor: ['#ff6384', '#ffce56', '#4bc0c0'],
+    },
+  ],
+};
+
+const CData = {
+    labels: ['기쁨', '분노', '놀람', '슬픔', '중립'],
+    datasets: [
+      {
+        label: '감정 분석',
+        data: [5, 15, 55, 20, 5],
+        backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#ff9f40', '#4bc0c0'],
+      },
+    ],
+  };
 
 function EmotionPage() {
     const containerStyle = {
@@ -143,7 +195,7 @@ function EmotionPage() {
                         
                         <div style={sectionStyle}>
                             <h3>수신자와의 관계</h3>
-                            <div style={chartStyle}></div>
+                            <Doughnut data={AData} options={options} />
                             <p style={percentageStyle}>친화적 관계: 60%</p>
                         </div>
                         
@@ -159,13 +211,14 @@ function EmotionPage() {
                     <div style={panelStyle}>
                         <div style={sectionStyle}>
                             <h3>발화 문장의 감정 분석</h3>
-                            <div style={chartStyle}></div>
+                            <Bar data={BData} options={options} />
                             <p style={emotionPercentageStyle}>놀람: 51%</p>
                         </div>
                         
                         <div style={sectionStyle}>
                             <h3>직전 상황 맥락 TEXT</h3>
                             <p style={contextTextStyle}>오랫동안 아무런 결실 없이 아이를 원하기만 한 부부가 있었습니다. ...</p>
+                            <Doughnut data={CData} options={options} />
                         </div>
                         
                         <div style={sectionStyle}>
