@@ -2,15 +2,17 @@ import React from 'react';
 
 function MainPage() {
     const containerStyle = {
-        textAlign: 'center',
+        textAlign: 'right',
         color: 'white',
         backgroundSize: 'cover',
-        height: '100vh',
+        height: '80%',
+        width: '80%',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'flex-end',
         padding: '20px',
+        position: 'relative',
     };
 
     const headerStyle = {
@@ -25,11 +27,11 @@ function MainPage() {
     };
 
     const buttonStyle = {
-        backgroundColor: '#D6FF43', // Replace with the color you prefer
+        backgroundColor: '#DCE73A',
         color: 'black',
-        padding: '15px 60px',
+        padding: '15px 50px',
         textDecoration: 'none',
-        borderRadius: '5px',
+        borderRadius: '14px',
         fontSize: '1.2em',
         border: 'none',
         cursor: 'pointer',
@@ -45,7 +47,7 @@ function MainPage() {
     };
 
     const cardStyle = {
-        backgroundColor: 'rgba(121, 121, 121, 0.5)', // Semi-transparent background for the card
+        backgroundColor: 'rgba(121, 121, 121, 0.5)',
         padding: '20px',
         borderRadius: '10px',
         width: '250px',
@@ -76,14 +78,21 @@ function MainPage() {
         textDecoration: 'none',
     };
 
+    const textContainerStyle = {
+        maxWidth: '600px',
+        textAlign: 'right',
+    };
+
     return (
         <div style={containerStyle}>
             <a href="http://localhost:3000/login" style={logoutButtonStyle}>Logout</a>
-            <h1 style={headerStyle}>Dive into the world of emotions!</h1>
-            <p style={subHeaderStyle}>
-                Enter a scenario to get a detailed sentiment analysis TTS service. Gain a deeper understanding of the scenario.
-            </p>
-            <a href="http://localhost:3000/ScenarioInput" style={buttonStyle}>Start world</a>
+            <div style={textContainerStyle}>
+                <h1 style={headerStyle}>Dive into the world of emotions!</h1>
+                <p style={subHeaderStyle}>
+                    Enter a scenario to get a detailed sentiment analysis TTS service. Gain a deeper understanding of the scenario.
+                </p>
+                <a href="http://localhost:3000/ScenarioInput" style={buttonStyle}>Start world</a>
+            </div>
             <div style={cardContainerStyle}>
                 {['My sentiment analysis', 'My sentiment analysis', 'My sentiment analysis', 'My sentiment analysis'].map((title, index) => (
                     <div key={index} style={cardStyle}>

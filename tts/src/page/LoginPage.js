@@ -5,16 +5,22 @@ function LoginPage() {
         textAlign: 'center',
         color: 'white',
         backgroundSize: 'cover',
-        height: '100vh',
+        height: '80%',
+        width: '80%',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: '0.8em', // Smaller font size for the entire container
+        padding: '20px',
+    };
+
+    const headerStyle = {
+        fontSize: '2.5em',
+        fontWeight: 'bold',
+        marginBottom: '40px',
     };
 
     const formStyle = {
-        //backgroundColor: 'rgba(0, 0, 0, 0)',
         padding: '20px',
         borderRadius: '10px',
         display: 'flex',
@@ -29,16 +35,16 @@ function LoginPage() {
         margin: '10px 0',
         borderRadius: '5px',
         border: 'none',
-        fontSize: '0.8em', // Smaller font size for inputs
+        fontSize: '0.8em',
     };
 
     const buttonStyle = {
         backgroundColor: 'black',
         color: 'white',
-        padding: '10px 40px', // Increased padding to make the button wider
+        padding: '10px 40px',
         textDecoration: 'none',
         borderRadius: '5px',
-        fontSize: '0.8em', // Smaller font size for button
+        fontSize: '0.8em',
         border: 'none',
         cursor: 'pointer',
         margin: '10px 0',
@@ -56,13 +62,34 @@ function LoginPage() {
 
     return (
         <div style={containerStyle}>
-            <h1 style={{ fontSize: '2.5em', marginBottom: '40px' }}>Emotion Voice</h1>
+            <h1 style={headerStyle}>Emotion Voice</h1>
             <div style={formStyle}>
-                <input type="email" placeholder="이메일 주소를 입력해 주세요." style={inputStyle} />
-                <input type="password" placeholder="비밀번호를 입력해 주세요." style={inputStyle} />
-                <a href="http://localhost:3000/Main" style={buttonStyle}>로그인</a>
+                <input type="email" placeholder="이메일 주소를 입력해 주세요." style={inputStyle} className="input-style" />
+                <input type="password" placeholder="비밀번호를 입력해 주세요." style={inputStyle} className="input-style" />
+                <a href="http://localhost:3000/Main" style={buttonStyle} className="button-style">로그인</a>
             </div>
-            <a href="http://localhost:3000/Register" style={textButtonStyle}>Emotion Voice가 처음이시라면, 회원가입이 필요해요.</a>
+            <a href="http://localhost:3000/Register" style={textButtonStyle} className="text-button-style">Emotion Voice가 처음이시라면, 회원가입이 필요해요.</a>
+            <style>
+                {`
+                    @media (max-width: 600px) {
+                        h1 {
+                            font-size: 1.5em !important;
+                            margin-bottom: 20px !important;
+                        }
+                        .input-style {
+                            font-size: 0.7em !important;
+                            padding: 8px !important;
+                        }
+                        .button-style {
+                            font-size: 0.7em !important;
+                            padding: 8px 20px !important;
+                        }
+                        .text-button-style {
+                            font-size: 0.7em !important;
+                        }
+                    }
+                `}
+            </style>
         </div>
     );
 }
