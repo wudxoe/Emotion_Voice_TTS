@@ -16,9 +16,9 @@ function ScenarioInputPage() {
     const formContainerStyle = {
         backgroundColor: 'white',
         color: 'black',
-        padding: '30px',
-        borderRadius: '10px',
-        width: '400px',
+        padding: '50px',
+        borderRadius: '20px',
+        width: '600px',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
         textAlign: 'left',
         position: 'relative'
@@ -36,7 +36,7 @@ function ScenarioInputPage() {
     };
 
     const headerStyle = {
-        fontSize: '1.5em',
+        fontSize: '1.7em',
         fontWeight: 'bold',
         marginBottom: '20px',
     };
@@ -46,7 +46,7 @@ function ScenarioInputPage() {
         height: '15px',
         padding: '15px',
         margin: '10px 0',
-        borderRadius: '5px',
+        borderRadius: '12px',
         border: '1px solid #ccc',
         fontSize: '1em',
         backgroundColor: 'white',
@@ -55,10 +55,10 @@ function ScenarioInputPage() {
 
     const textareaStyle = {
         width: '95%',
-        height: '150px',
+        height: '200px',
         padding: '15px',
         margin: '10px 0',
-        borderRadius: '14px',
+        borderRadius: '12px',
         border: '1px solid #ccc',
         fontSize: '1em',
         backgroundColor: 'white',
@@ -80,7 +80,7 @@ function ScenarioInputPage() {
 
     const noteStyle = {
         fontSize: '0.8em',
-        marginTop: '20px',
+        marginTop: '50px',
         color: 'gray',
         lineHeight: '1.4',
     };
