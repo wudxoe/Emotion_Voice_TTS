@@ -13,29 +13,30 @@ function ScenarioPage() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: '20px',
+        padding: '80px',
     };
 
     const bookContainerStyle = {
-        padding: '30px',
         borderRadius: '10px',
-        width: '90%',
-        height: '90%',
+        width: '70%',
+        height: '40%',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
     };
 
     const leftPageStyle = {
-        width: '45%',
+        width: '100%',
+        height: '100%',
         padding: '20px',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
     };
 
     const rightPageStyle = {
-        width: '45%',
+        width: '100%',
+        height: '100%',
         padding: '20px',
         display: 'flex',
         flexDirection: 'column',
@@ -45,6 +46,8 @@ function ScenarioPage() {
     const containerBoxStyle = {
         backgroundColor: 'rgba(255, 255, 255, 0.8)',
         padding: '20px',
+        width: '80%',
+        height: '100%',
         borderRadius: '10px',
         marginBottom: '20px',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
@@ -57,6 +60,8 @@ function ScenarioPage() {
 
     const charactersContainerStyle = {
         display: 'flex',
+        width: '80%',
+        height: '100%',
         flexDirection: 'row',
         justifyContent: 'center',
         marginBottom: '20px',
@@ -64,6 +69,8 @@ function ScenarioPage() {
 
     const characterStyle = {
         display: 'flex',
+        width: '80%',
+        height: '100%',
         flexDirection: 'column',
         alignItems: 'center',
         margin: '0 10px',
@@ -78,6 +85,8 @@ function ScenarioPage() {
 
     const emotionStyle = {
         display: 'flex',
+        width: '80%',
+        height: '100%',
         flexDirection: 'column',
         alignItems: 'center',
         marginTop: '20px',

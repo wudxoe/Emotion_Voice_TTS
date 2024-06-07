@@ -67,9 +67,11 @@ function EmotionPage() {
         padding: '20px',
         borderRadius: '10px',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-        width: '90%',
+        width: '94.5%',
+        height: '94.5%',
         maxWidth: '1200px',
         position: 'relative',
+        overflowY: 'auto',
     };
 
     const closeButtonStyle = {
