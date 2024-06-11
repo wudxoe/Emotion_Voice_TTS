@@ -36,7 +36,7 @@ const AData = {
     datasets: [
         {
             data: [60, 15, 20],
-            backgroundColor: ['#ff6384', '#ffce56', '#4bc0c0'],
+            backgroundColor: ['#f7e948', '#ADD1C1', '#ff808b'],
         },
     ],
 };
