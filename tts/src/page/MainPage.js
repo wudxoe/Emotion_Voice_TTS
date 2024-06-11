@@ -40,10 +40,20 @@ function MainPage() {
 
     const cardContainerStyle = {
         display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        flexDirection: 'column',
         gap: '20px',
         marginTop: '40px',
+        maxHeight: '400px', // Adjust this height as needed
+        overflowY: 'auto',
+        width: '100%',
+        scrollbarWidth: 'none', /* For Firefox */
+        msOverflowStyle: 'none', /* For Internet Explorer and Edge */
+    };
+
+    const cardRowStyle = {
+        display: 'flex',
+        justifyContent: 'flex-end',
+        gap: '20px',
     };
 
     const cardStyle = {
@@ -68,7 +78,7 @@ function MainPage() {
 
     const logoutButtonStyle = {
         position: 'absolute',
-        top: '20px',
+        top: '0px',
         right: '20px',
         background: 'none',
         color: 'white',
@@ -83,6 +93,18 @@ function MainPage() {
         textAlign: 'right',
     };
 
+    const hideScrollbarStyle = {
+        '&::-webkit-scrollbar': {
+            display: 'none',
+        },
+    };
+
+    const titles = [
+        'My sentiment analysis', 'My sentiment analysis', 'My sentiment analysis', 'My sentiment analysis',
+        'My sentiment analysis', 'My sentiment analysis', 'My sentiment analysis', 'My sentiment analysis',
+        'My sentiment analysis'
+    ];
+
     return (
         <div style={containerStyle}>
             <a href="http://localhost:3000/login" style={logoutButtonStyle}>Logout</a>
@@ -93,17 +115,43 @@ function MainPage() {
                 </p>
                 <a href="http://localhost:3000/ScenarioInput" style={buttonStyle}>Start world</a>
             </div>
-            <div style={cardContainerStyle}>
-                {['My sentiment analysis', 'My sentiment analysis', 'My sentiment analysis', 'My sentiment analysis'].map((title, index) => (
-                    <div key={index} style={cardStyle}>
-                        <div style={cardTitleStyle}>{title}</div>
-                        <div style={cardTextStyle}>
-                            백설공주
-                            <br />
-                            옛날 옛적 한겨울에, 하늘에서 눈송이가 소리없이 내리고 있었습니다. 그때 어느 왕비가 분홍빛 겨울 장미 곁에 앉아 바느질을 하고 있었습니다. ...
+            <div style={{ ...cardContainerStyle, ...hideScrollbarStyle }}>
+                <div style={cardRowStyle}>
+                    {titles.slice(0, 4).map((title, index) => (
+                        <div key={index} style={cardStyle}>
+                            <div style={cardTitleStyle}>{title}</div>
+                            <div style={cardTextStyle}>
+                                백설공주
+                                <br />
+                                옛날 옛적 한겨울에, 하늘에서 눈송이가 소리없이 내리고 있었습니다. 그때 어느 왕비가 분홍빛 겨울 장미 곁에 앉아 바느질을 하고 있었습니다. ...
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
+                <div style={cardRowStyle}>
+                    {titles.slice(4, 8).map((title, index) => (
+                        <div key={index} style={cardStyle}>
+                            <div style={cardTitleStyle}>{title}</div>
+                            <div style={cardTextStyle}>
+                                백설공주
+                                <br />
+                                옛날 옛적 한겨울에, 하늘에서 눈송이가 소리없이 내리고 있었습니다. 그때 어느 왕비가 분홍빛 겨울 장미 곁에 앉아 바느질을 하고 있었습니다. ...
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <div style={cardRowStyle}>
+                    {titles.slice(8).map((title, index) => (
+                        <div key={index} style={cardStyle}>
+                            <div style={cardTitleStyle}>{title}</div>
+                            <div style={cardTextStyle}>
+                                백설공주
+                                <br />
+                                옛날 옛적 한겨울에, 하늘에서 눈송이가 소리없이 내리고 있었습니다. 그때 어느 왕비가 분홍빛 겨울 장미 곁에 앉아 바느질을 하고 있었습니다. ...
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );

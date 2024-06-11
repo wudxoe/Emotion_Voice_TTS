@@ -22,7 +22,7 @@ function HomePage() {
     };
 
     const textStyle = {
-        fontSize: '3em',
+        fontSize: '3.5em',
         marginBottom: '50px', // 텍스트와 버튼 사이 여백
     };
 

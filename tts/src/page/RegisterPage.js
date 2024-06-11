@@ -15,18 +15,18 @@ function RegisterPage() {
     };
 
     const headerStyle = {
-        fontSize: '2.5em',
+        fontSize: '3em',
         fontWeight: 'bold',
         marginBottom: '40px',
     };
 
     const formStyle = {
-        padding: '20px',
+        padding: '10px',
         borderRadius: '10px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        width: '300px',
+        width: '350px',
     };
 
     const inputStyle = {
@@ -35,7 +35,7 @@ function RegisterPage() {
         margin: '10px 0',
         borderRadius: '5px',
         border: 'none',
-        fontSize: '0.8em',
+        fontSize: '0.9em',
     };
 
     const buttonStyle = {
