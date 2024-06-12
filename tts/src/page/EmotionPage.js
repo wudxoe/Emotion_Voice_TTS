@@ -2,8 +2,9 @@ import React from 'react';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import 'chart.js/auto';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
 const BData = {
     labels: ['기쁨', '분노', '놀람', '슬픔', '중립'],
@@ -27,6 +28,12 @@ const options = {
         },
         tooltip: {
             enabled: true,
+        },
+        datalabels: {
+            color: '#000000',
+            anchor: 'end',
+            align: 'end',
+            formatter: (value) => `${value}%`,
         },
     },
 };
