@@ -9,6 +9,7 @@ import RegisterPage from './page/RegisterPage';
 import ScenarioInputPage from './page/ScenarioInputPage';
 import ScenarioPage from './page/ScenarioPage';
 import EmotionPage from './page/EmotionPage';
+import SPage from './page/SPage';
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                     <Route path="/ScenarioInput" element={<ScenarioInputPage />} />
                     <Route path="/Scenario" element={<ScenarioPage />} />
                     <Route path="/Emotion" element={<EmotionPage />} />
+                    <Route path="/S" element={<SPage />} />
                 </Routes>
             </div>
         </Router>

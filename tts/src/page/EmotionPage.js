@@ -2,8 +2,9 @@ import React from 'react';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import 'chart.js/auto';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
 const BData = {
     labels: ['기쁨', '분노', '놀람', '슬픔', '중립'],
@@ -28,6 +29,12 @@ const options = {
         tooltip: {
             enabled: true,
         },
+        datalabels: {
+            color: '#000000',
+            anchor: 'end',
+            align: 'end',
+            formatter: (value) => `${value}%`,
+        },
     },
 };
 
@@ -36,7 +43,7 @@ const AData = {
     datasets: [
         {
             data: [60, 15, 20],
-            backgroundColor: ['#ff6384', '#ffce56', '#4bc0c0'],
+            backgroundColor: ['#f7e948', '#ADD1C1', '#ff808b'],
         },
     ],
 };
@@ -71,7 +78,12 @@ function EmotionPage() {
         height: '94.5%',
         maxWidth: '1200px',
         position: 'relative',
-        overflowY: 'auto',
+        overflow: 'auto',
+    };
+
+    const hideScrollbarStyle = {
+        scrollbarWidth: 'none', /* Firefox */
+        msOverflowStyle: 'none', /* Internet Explorer 10+ */
     };
 
     const closeButtonStyle = {
@@ -127,13 +139,6 @@ function EmotionPage() {
         color: '#555',
     };
 
-    const chartStyle = {
-        width: '100%',
-        height: '150px',
-        backgroundColor: '#eee',
-        marginTop: '10px',
-    };
-
     const percentageStyle = {
         fontSize: '1em',
         color: '#ff5733',
@@ -165,8 +170,31 @@ function EmotionPage() {
         color: 'red',
     };
 
+    const emotionWordBoxStyle = {
+        border: '1px solid #ccc',
+        borderRadius: '10px',
+        padding: '10px',
+        backgroundColor: 'white',
+        fontSize: '1em',
+        lineHeight: '1.5',
+    };
+
+    const emotionBoxStyle = {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '10px',
+    };
+
     return (
-        <div style={containerStyle}>
+        <div style={{ ...containerStyle, ...hideScrollbarStyle }}>
+            <style>
+                {`
+                    ::-webkit-scrollbar {
+                        display: none;
+                    }
+                `}
+            </style>
             <div style={pageStyle}>
                 <a href="http://localhost:3000/Scenario" style={closeButtonStyle}>&times;</a>
                 <h1 style={titleStyle}>Snow White</h1>
@@ -187,6 +215,7 @@ function EmotionPage() {
                                 <p>수신자: 아내</p>
                                 <p style={speechStyle}>“여보! 깜짝이야!”</p>
                             </div>
+                            <h3>수신자일 확률: 70%</h3>
                         </div>
 
                         <div style={sectionStyle}>
@@ -198,9 +227,11 @@ function EmotionPage() {
                         <div style={sectionStyle}>
                             <h3>전 발화</h3>
                             <p style={previousSpeechTextStyle}>“어머, 깜짝이야!!”</p>
-                            <p>전 발화의 감정</p>
-                            <div style={chartStyle}></div>
-                            <p style={emotionLabelStyle}>놀람</p>
+                            <h3>전 발화의 감정</h3>
+                            <div style={emotionBoxStyle}>
+                                <img src="./assets/surprise.jpg" alt="놀람" style={{ width: '30px', height: '30px' }} />
+                                <span style={emotionLabelStyle}>Surprise</span>
+                            </div>
                         </div>
                     </div>
 
@@ -209,6 +240,16 @@ function EmotionPage() {
                             <h3>발화 문장의 감정 분석</h3>
                             <Bar data={BData} options={options} />
                             <p style={emotionPercentageStyle}>놀람: 51%</p>
+                        </div>
+
+                        <div style={sectionStyle}>
+                            <div style={emotionWordBoxStyle}>
+                                <h4>발화 문장의 감정 어휘</h4>
+                                <p>놀람 어휘: 놀랐잖아</p>
+                                <p>기쁨 어휘: 없음</p>
+                                <p>슬픔 어휘: 없음</p>
+                                <p>분노 어휘: 없음</p>
+                            </div>
                         </div>
 
                         <div style={sectionStyle}>
