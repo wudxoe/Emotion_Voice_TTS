@@ -101,8 +101,6 @@ function MainPage() {
 
     const titles = [
         'My sentiment analysis', 'My sentiment analysis', 'My sentiment analysis', 'My sentiment analysis',
-        'My sentiment analysis', 'My sentiment analysis', 'My sentiment analysis', 'My sentiment analysis',
-        'My sentiment analysis'
     ];
 
     return (

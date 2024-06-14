@@ -31,9 +31,12 @@ const options = {
         },
         datalabels: {
             color: '#000000',
-            anchor: 'end',
-            align: 'end',
-            formatter: (value) => `${value}%`,
+            anchor: 'center',
+            align: 'center',
+            formatter: (value) => {
+                // 레이블을 값이 0이 아닐 때만 표시
+                return value > 0 ? `${value}%` : '';
+            },
         },
     },
 };
@@ -42,7 +45,7 @@ const AData = {
     labels: ['친화적', '중립적', '적대적'],
     datasets: [
         {
-            data: [60, 15, 20],
+            data: [60, 20, 20],
             backgroundColor: ['#f7e948', '#ADD1C1', '#ff808b'],
         },
     ],
@@ -120,6 +123,11 @@ function EmotionPage() {
 
     const sectionStyle = {
         marginBottom: '20px',
+    };
+
+    const dialogueStyle = {
+        display: 'flex',
+        alignItems: 'center',
     };
 
     const imageStyle = {
@@ -202,26 +210,32 @@ function EmotionPage() {
                 <div style={contentStyle}>
                     <div style={leftPanelStyle}>
                         <div style={sectionStyle}>
-                            <img src="/assets/sad.jpg" alt="남편" style={imageStyle} />
-                            <div style={textContentStyle}>
-                                <p>발화자: 남편</p>
-                                <p style={speechStyle}>“무슨 일이야? 놀랐잖아 여보!!”</p>
+                            <div style={dialogueStyle}>
+                                <img src="./assets/sad.jpg" alt="남편" style={imageStyle} />
+                                <div style={textContentStyle}>
+                                    <p>발화자: 남편</p>
+                                    <p style={speechStyle}>“무슨 일이야? 놀랐잖아 여보!!”</p>
+                                </div>
                             </div>
                         </div>
 
                         <div style={sectionStyle}>
-                            <img src="/assets/sad.jpg" alt="아내" style={imageStyle} />
-                            <div style={textContentStyle}>
-                                <p>수신자: 아내</p>
-                                <p style={speechStyle}>“여보! 깜짝이야!”</p>
+                            <div style={dialogueStyle}>
+                                <img src="./assets/sad.jpg" alt="아내" style={imageStyle} />
+                                <div style={textContentStyle}>
+                                    <p>수신자: 아내</p>
+                                    <p style={speechStyle}>“여보! 깜짝이야!”</p>
+                                </div>
                             </div>
                             <h3>수신자일 확률: 70%</h3>
+                            <br/><br/><br/>
                         </div>
 
                         <div style={sectionStyle}>
                             <h3>수신자와의 관계</h3>
                             <Doughnut data={AData} options={options} />
                             <p style={percentageStyle}>친화적 관계: 60%</p>
+                            <br/><br/><br/>
                         </div>
 
                         <div style={sectionStyle}>
@@ -240,6 +254,7 @@ function EmotionPage() {
                             <h3>발화 문장의 감정 분석</h3>
                             <Bar data={BData} options={options} />
                             <p style={emotionPercentageStyle}>놀람: 51%</p>
+                            <br/><br/><br/>
                         </div>
 
                         <div style={sectionStyle}>
@@ -250,12 +265,14 @@ function EmotionPage() {
                                 <p>슬픔 어휘: 없음</p>
                                 <p>분노 어휘: 없음</p>
                             </div>
+                            <br/><br/><br/>
                         </div>
 
                         <div style={sectionStyle}>
                             <h3>직전 상황 맥락 TEXT</h3>
                             <p style={contextTextStyle}>오랫동안 아무런 결실 없이 아이를 원하기만 한 부부가 있었습니다. ...</p>
                             <Doughnut data={CData} options={options} />
+                            <br/><br/><br/>
                         </div>
 
                         <div style={sectionStyle}>
