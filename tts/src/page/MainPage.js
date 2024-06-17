@@ -1,6 +1,11 @@
 import React from 'react';
 
 function MainPage() {
+    const handleLogout = () => {
+        localStorage.removeItem("email");
+        window.location.href = 'http://localhost:3000/login';
+    };
+
     const containerStyle = {
         textAlign: 'right',
         color: 'white',
@@ -105,7 +110,7 @@ function MainPage() {
 
     return (
         <div style={containerStyle}>
-            <a href="http://localhost:3000/login" style={logoutButtonStyle}>Logout</a>
+            <button onClick={handleLogout} style={logoutButtonStyle}>Logout</button>
             <div style={textContainerStyle}>
                 <h1 style={headerStyle}>Dive into the world of emotions!</h1>
                 <p style={subHeaderStyle}>

@@ -1,11 +1,12 @@
 // server.js (백엔드 서버)
 const express = require('express');
-const mysql = require('mysql');
+//const mysql = require('mysql');
 const cors = require('cors');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const db = require('./db');
 
 const app = express();
-const port = 18557;
+const port = 16001;
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -15,7 +16,7 @@ const db = mysql.createConnection({
     user: 'root',
     password: 'root',
     database: 'emotion_analysis',
-    port: 18557,
+    port: 16001,
     insecureAuth: true
 });
 

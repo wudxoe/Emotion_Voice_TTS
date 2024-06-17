@@ -1,6 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 function LoginPage() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLogin = async () => {
+        // try {
+        //     const response = await axios.post('http://localhost:3000/login', {
+        //         email,
+        //         password,
+        //     });
+
+        //     if (response.data === 'Login successful') {
+        //         window.location.href = 'http://localhost:3000/Main';
+        //     } else {
+        //         alert('Invalid credentials');
+        //     }
+        // } catch (error) {
+        //     alert('Login failed');
+        //     console.error(error);
+        // }
+        localStorage.setItem("email", email);
+        window.location.href = 'http://localhost:3000/Main';
+    };
+
     const containerStyle = {
         textAlign: 'center',
         color: 'white',
@@ -64,9 +88,23 @@ function LoginPage() {
         <div style={containerStyle}>
             <h1 style={headerStyle}>Emotion Voice</h1>
             <div style={formStyle}>
-                <input type="email" placeholder="이메일 주소를 입력해 주세요." style={inputStyle} className="input-style" />
-                <input type="password" placeholder="비밀번호를 입력해 주세요." style={inputStyle} className="input-style" />
-                <a href="http://localhost:3000/Main" style={buttonStyle} className="button-style">로그인</a>
+                <input 
+                    type="email" 
+                    placeholder="이메일 주소를 입력해 주세요." 
+                    style={inputStyle} 
+                    className="input-style" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <input 
+                    type="password" 
+                    placeholder="비밀번호를 입력해 주세요." 
+                    style={inputStyle} 
+                    className="input-style" 
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <button onClick={handleLogin} style={buttonStyle} className="button-style">로그인</button>
             </div>
             <a href="http://localhost:3000/Register" style={textButtonStyle} className="text-button-style">Emotion Voice가 처음이시라면, 회원가입이 필요해요.</a>
             <style>
